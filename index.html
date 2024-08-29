@@ -37,6 +37,14 @@
 
             </div>
         </div>
+       <div class="container" id="main-btn">
+        <div class="button-container">
+            <button id="btn-up" class="arrow-button up">&uarr;</button>
+            <button id="btn-left" class="arrow-button left">&larr;</button>
+            <button id="btn-right" class="arrow-button right">&rarr;</button>
+            <button id="btn-down" class="arrow-button down">&darr;</button>
+        </div>
+    </div>
 
     </div>
 
@@ -55,6 +63,13 @@
         let btn_start = document.getElementById('btn-start');
         let btn_level = document.getElementById('btn-level');
         let choose_level = document.getElementsByClassName('level');
+
+
+
+        let btn_up =  document.getElementById('btn-up');
+        let btn_left =  document.getElementById('btn-left');
+        let btn_right =  document.getElementById('btn-right');
+        let btn_down =  document.getElementById('btn-down');
 
         let count = 0;
         // Tạo biến để định hương đi cho rắn
@@ -542,42 +557,97 @@
 
 
         }
+        function handleMove(direction) {
+    switch (direction) {
+        case 'up':
+            if (check.y !== 0) break;
+            move = { x: 0, y: -1 };
+            check.x = move.x;
+            check.y = move.y;
+            rotate = 0;
+            break;
+        case 'down':
+            if (check.y !== 0) break;
+            move = { x: 0, y: 1 };
+            check.x = move.x;
+            check.y = move.y;
+            rotate = -180;
+            break;
+        case 'left':
+            if (check.x !== 0) break;
+            move = { x: -1, y: 0 };
+            check.x = move.x;
+            check.y = move.y;
+            rotate = -90;
+            break;
+        case 'right':
+            if (check.x !== 0) break;
+            move = { x: 1, y: 0 };
+            check.x = move.x;
+            check.y = move.y;
+            rotate = 90;
+            break;
+    }
+}
 
-        //Phuong thuc bat su kien bam nut
-        function event(){
-            window.addEventListener('keydown',e =>{
-                switch (e.key) {
-                    case 'ArrowUp':
-                        if(check.y != 0) break;
-                        move = {x:0,y:-1};
-                        check.x = move.x;
-                        check.y = move.y;
-                        rotate = 0;
-                        break;
-                    case 'ArrowDown':
-                        if(check.y != 0) break;
-                        move = {x:0,y:1};
-                        check.x = move.x;
-                        check.y = move.y;
-                        rotate = -180;
-                        break;
-                    case 'ArrowLeft':
-                        if(check.x != 0) break;
-                        move = {x:-1,y:0};
-                        check.x = move.x;
-                        check.y = move.y;
-                        rotate = -90;
-                        break;
-                    case 'ArrowRight':
-                        if(check.x != 0) break;
-                        move = {x:1,y:0};
-                        check.x = move.x;
-                        check.y = move.y;
-                        rotate = 90;
-                        break;
-                }
-            })
+        // //Phuong thuc bat su kien bam nut
+        // function event(){
+        //     window.addEventListener('keydown',e =>{
+        //         switch (e.key) {
+        //             case 'ArrowUp':
+        //                 if(check.y != 0) break;
+        //                 move = {x:0,y:-1};
+        //                 check.x = move.x;
+        //                 check.y = move.y;
+        //                 rotate = 0;
+        //                 break;
+        //             case 'ArrowDown':
+        //                 if(check.y != 0) break;
+        //                 move = {x:0,y:1};
+        //                 check.x = move.x;
+        //                 check.y = move.y;
+        //                 rotate = -180;
+        //                 break;
+        //             case 'ArrowLeft':
+        //                 if(check.x != 0) break;
+        //                 move = {x:-1,y:0};
+        //                 check.x = move.x;
+        //                 check.y = move.y;
+        //                 rotate = -90;
+        //                 break;
+        //             case 'ArrowRight':
+        //                 if(check.x != 0) break;
+        //                 move = {x:1,y:0};
+        //                 check.x = move.x;
+        //                 check.y = move.y;
+        //                 rotate = 90;
+        //                 break;
+        //         }
+        //     })
+        // }
+function event() {
+    window.addEventListener('keydown', e => {
+        switch (e.key) {
+            case 'ArrowUp':
+                handleMove('up');
+                break;
+            case 'ArrowDown':
+                handleMove('down');
+                break;
+            case 'ArrowLeft':
+                handleMove('left');
+                break;
+            case 'ArrowRight':
+                handleMove('right');
+                break;
         }
+    });
+
+    btn_up.addEventListener('click', () => handleMove('up'));
+    btn_down.addEventListener('click', () => handleMove('down'));
+    btn_left.addEventListener('click', () => handleMove('left'));
+    btn_right.addEventListener('click', () => handleMove('right'));
+}
 
     runGame();
 
