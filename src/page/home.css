@@ -1,0 +1,69 @@
+* {
+  padding: 0px;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* Tạo gradient chuyển từ xanh dương sang tím */
+  background: linear-gradient(to right, #4a90e2, #8e44ad);
+  /* Sử dụng full height cho trang */
+  min-height: 100vh;
+  /* Tạo sự mềm mại cho màu chuyển */
+  color: white;
+  justify-content: center;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  text-align: center;
+  margin-top: 2%;
+}
+
+.container h3 {
+  font-size: 36px;
+  margin-bottom: 4%;
+}
+
+label {
+  font-size: 16px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+select {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #4a90e2;
+  border-radius: 5px;
+  background-color: white;
+  color: #333;
+  appearance: none; /* Ẩn dấu mũi tên mặc định */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px top 50%;
+  background-size: 20px;
+  width: 200px;
+  cursor: pointer;
+}
+
+select:focus {
+  border-color: #8e44ad;
+  outline: none;
+}
+
+.wrap-image {
+  margin-top: 6%;
+}
+.wrap-image img {
+  width: 22%;
+}
+
+.text {
+  font-size: 20px !important;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+  color: aquamarine;
+}
